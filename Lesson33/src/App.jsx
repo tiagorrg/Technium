@@ -4,6 +4,8 @@ import { Blog } from './pages/blog'
 import {Root} from './components/Root'
 import { Main } from './pages/main'
 
+import { Post } from './pages/posts/components/Post'
+import { CurrentBlog } from './pages/blog/components/currentBlog'
 
 import './App.css'
 
@@ -22,8 +24,16 @@ function App() {
           element: <Posts />
         },
         {
+          path: 'posts/:postId',
+          element: <Post />
+        },
+        {
           path: 'blog',
-          element: <Blog/>
+          element: <Blog />
+        },
+        {
+          path: 'blog/:blogId',
+          element: <CurrentBlog />
         }
       ]
     },
