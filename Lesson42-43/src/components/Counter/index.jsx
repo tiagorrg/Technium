@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment, incrementByAmount } from "../../slices/counter/counterSlice";
+import { decrement, increment, incrementByAmount, incrementAsync, decrementAsync } from "../../slices/counter/counterSlice";
 
 export const Counter = () => {
     const count = useSelector((state) => state.counter.value)
@@ -27,6 +27,8 @@ export const Counter = () => {
 
                 <input type="number" onChange={(e) => setAmount(e.target.value ? Number(e.target.value) : 0)}/>
                 <button onClick={() => dispatch(incrementByAmount(amount))}>Добавить число</button>
+                <button onClick={() => dispatch(incrementAsync(amount))}>Добавить число асинхронно</button>
+                <button onClick={() => dispatch(decrementAsync(amount))}>Отнять число асинхронно</button>
             </div>
         </div>
     );
