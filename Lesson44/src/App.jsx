@@ -1,12 +1,10 @@
+import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
-import {Posts} from './pages/posts'
-import { Blog } from './pages/blog'
-import {Root} from './components/Root'
-import { Main } from './pages/main'
-
-
 import './App.css'
+import { Root } from './components/Root'
+import { Users } from './pages/users'
+import { Counter } from './pages/counter'
+import { Posts } from './pages/posts'
 
 function App() {
   const router = createBrowserRouter([
@@ -16,23 +14,22 @@ function App() {
       children: [
         {
           index: true,
-          element: <Main />
+          element: <Counter />,
+        },
+        {
+          path: 'users',
+          element: <Users />,
         },
         {
           path: 'posts',
-          element: <Posts />
-        },
-        {
-          path: 'blog',
-          element: <Blog/>
+          element: <Posts />,
         }
       ]
-    },
-  ]
-)
+    }
+  ]) 
 
   return (
-    <div>
+    <div className='App'>
       <RouterProvider router={router}/>
     </div>
   )
